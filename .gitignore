@@ -1,0 +1,16 @@
+*.iml
+*.egg-info
+*.eggs
+*.pyc
+*.so
+*.swp
+*.lib
+*.o
+
+.cache
+.coverage
+coverage.xml
+htmlcov
+.idea
+.ipynb_checkpoints
+junit-*.xml
