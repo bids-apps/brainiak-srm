@@ -1,6 +1,6 @@
 ## The BrainIAK-SRM BIDS App
 This is the BIDS-app version of the Shared Response Model (SRM)
-implemented in [Brain Imaging Analysis Toolkit (BrainIAK)](https://github.com/IntelPNI/brainiak).
+implemented in [Brain Imaging Analysis Kit (BrainIAK)](https://github.com/IntelPNI/brainiak).
 
 ### Description
 The Shared Response Model (SRM) is a method for aligning fMRI scans from several subjects by assuming
