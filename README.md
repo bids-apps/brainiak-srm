@@ -61,10 +61,10 @@ This App has the following command line arguments:
 To run it in group level mode:
 
     docker run -i --rm \
-		-v /Users/yidawang/docker/dummyinput:/inputs \
-		-v /Users/yidawang/docker/outputs:/outputs \
+		-v /Users/yidawang/dummyinput:/inputs \
+		-v /Users/yidawang/outputs:/outputs \
 		bids/brainiak-srm \
 		/bids_dataset /outputs group
 
 ### Special considerations
-TBD
+SRM works only on group level because it is a method to align fMRI scans from multiple subjects.
