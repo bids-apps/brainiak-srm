@@ -23,7 +23,7 @@ dependencies:
 test:
   override:
     # print version
-    - docker run -ti --rm --read-only -v /tmp:/tmp -v /var/tmp:/var/tmp -v ${HOME}/data/dummyinput:/bids_dataset bids/brainiak-srm --version
+    - docker run -ti --rm --read-only -v /tmp:/tmp -v /var/tmp:/var/tmp -v ${HOME}/data/dummyinput:/bids_dataset -v ${HOME}/outputs1:/outputs bids/brainiak-srm --version
     # group level test
     - docker run -ti --rm --read-only -v /tmp:/tmp -v /var/tmp:/var/tmp -v ${HOME}/data/dummyinput:/bids_dataset -v ${HOME}/outputs1:/outputs bids/brainiak-srm /bids_dataset /outputs group :
         timeout: 21600
