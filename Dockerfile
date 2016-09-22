@@ -10,7 +10,9 @@ RUN apt-get update \
     && pip3 install -U pip \
     && pip3 install \
     git+https://github.com/IntelPNI/brainiak \
-    matplotlib
+    matplotlib \
+    && pip3 install \
+    python3-tk
 
 RUN mkdir -p /code
 
