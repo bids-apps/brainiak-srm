@@ -6,6 +6,10 @@ import math
 import os
 import urllib.request
 
+import matplotlib
+# Force matplotlib to not use any Xwindows backend.
+matplotlib.use('Agg')
+
 import matplotlib.pyplot as plt
 import numpy as np
 import scipy.io
