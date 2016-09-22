@@ -54,6 +54,10 @@ This App has the following command line arguments:
 
 
 ### Special considerations
+This app requires preprocessed data with all volumes of a subject registered.
+It also requires masks to be present in the input data; all to-be-analyzed
+volumes of a subject must use the same mask.
+
 SRM works only on group level because it is a method for aligning fMRI scans from multiple subjects.
 
 The data must be time-synchronized, i.e., all subjects must be presented with the same stimuli with the same duration in the same order.
