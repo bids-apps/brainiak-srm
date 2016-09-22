@@ -71,8 +71,7 @@ def srm_image_prediction(output_dir):
         movie_data[subject] = stats.zscore(movie_data[subject],axis=1,ddof=1)
     
     # Run SRM with the movie data
-    srm = brainiak.funcalign.srm.SRM(n_iter=10, features=50,
-            verbose=True)
+    srm = brainiak.funcalign.srm.SRM(n_iter=10, features=50)
     srm.fit(movie_data)
     
     # Load the input data that contains the image stimuli and its labels for

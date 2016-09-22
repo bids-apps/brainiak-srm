@@ -7,12 +7,11 @@ RUN apt-get update \
     mpich \
     pkg-config \
     python3-pip \
+    python3-tk \
     && pip3 install -U pip \
     && pip3 install \
     git+https://github.com/IntelPNI/brainiak \
-    matplotlib \
-    && pip3 install \
-    python3-tk
+    matplotlib
 
 RUN mkdir -p /code
 
