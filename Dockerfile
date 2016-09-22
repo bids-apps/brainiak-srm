@@ -11,7 +11,8 @@ RUN apt-get update \
     && pip3 install -U pip \
     && pip3 install \
     git+https://github.com/IntelPNI/brainiak \
-    matplotlib
+    nibabel \
+    nilearn
 
 RUN mkdir -p /code
 
