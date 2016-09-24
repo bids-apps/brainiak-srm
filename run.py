@@ -2,6 +2,7 @@
 """Brain Imaging Analysis Kit Shared Response Model runner"""
 
 import argparse
+import logging
 import os.path
 
 from pathlib import Path
@@ -16,6 +17,9 @@ import brainiak.funcalign.srm
 
 
 def main():
+    logging.basicConfig(level=logging.INFO)
+    logger = logging.getLogger(__name__)
+
     parser = argparse.ArgumentParser(
         description="Shared Response Model runner",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
@@ -43,17 +47,23 @@ def main():
     args = parser.parse_args()
 
     subject_dirs = Path(args.bids_dir, "derivatives").glob("sub-*")
+    logger.info("Collecting subjects")
     if args.participant_label is not None:
         selected_subject_dirs = [s_dir for s_dir in subject_dirs if
                                  s_dir.name[4:] in args.participant_label]
     else:
         selected_subject_dirs = subject_dirs
+    logger.info("Collecting files")
     subjects_files = [get_subject_files(s_dir, args)
                       for s_dir in selected_subject_dirs]
+    logger.info("Masking")
     srm_input = process_input(subjects_files, args.mask)
+    logger.info("Applying SRM")
     srm_attributes = apply_srm(srm_input, args.iterations, args.features)
+    logger.info("Saving SRM attributes")
     np.savez(os.path.join(args.output_dir, "srm_attributes"),
              **srm_attributes)
+    logger.info("Done")
 
 
 def get_subject_files(subject_dir, args):
