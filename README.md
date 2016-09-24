@@ -36,7 +36,7 @@ This App has the following command line arguments:
     positional arguments:
       bids_dir              Input directory
       output_dir            Output directory
-      {participant,group}   Level of the analysis that will be performed
+      {group}   Level of the analysis that will be performed
     
     optional arguments:
       -h, --help            show this help message and exit

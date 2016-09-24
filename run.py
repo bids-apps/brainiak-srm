@@ -23,7 +23,7 @@ def main():
     parser.add_argument("output_dir", help="Output directory")
     parser.add_argument("analysis_level",
                         help="Level of the analysis that will be performed",
-                        choices=["participant", "group"])
+                        choices=["group"])
     parser.add_argument("--participant_label",
                         help="Labels for participants to be analyzed",
                         nargs="+")
@@ -42,15 +42,12 @@ def main():
                         type=int)
     args = parser.parse_args()
 
-    if args.analysis_level == "participant":
-        pass
-    elif args.analysis_level == "group":
-        subject_dirs = Path(args.bids_dir, "derivatives").glob("sub-*")
-        subjects_files = [get_subject_files(s, args) for s in subject_dirs]
-        srm_input = process_input(subjects_files, args.mask)
-        srm_attributes = apply_srm(srm_input, args.iterations, args.features)
-        np.savez(os.path.join(args.output_dir, "srm_attributes"),
-                 **srm_attributes)
+    subject_dirs = Path(args.bids_dir, "derivatives").glob("sub-*")
+    subjects_files = [get_subject_files(s, args) for s in subject_dirs]
+    srm_input = process_input(subjects_files, args.mask)
+    srm_attributes = apply_srm(srm_input, args.iterations, args.features)
+    np.savez(os.path.join(args.output_dir, "srm_attributes"),
+             **srm_attributes)
 
 
 def get_subject_files(subject_dir, args):
