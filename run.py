@@ -43,7 +43,13 @@ def main():
     args = parser.parse_args()
 
     subject_dirs = Path(args.bids_dir, "derivatives").glob("sub-*")
-    subjects_files = [get_subject_files(s, args) for s in subject_dirs]
+    if args.participant_label is not None:
+        selected_subject_dirs = [s_dir for s_dir in subject_dirs if
+                                 s_dir.name[-2:] in args.participant_label]
+    else:
+        selected_subject_dirs = subject_dirs
+    subjects_files = [get_subject_files(s_dir, args)
+                      for s_dir in selected_subject_dirs]
     srm_input = process_input(subjects_files, args.mask)
     srm_attributes = apply_srm(srm_input, args.iterations, args.features)
     np.savez(os.path.join(args.output_dir, "srm_attributes"),
