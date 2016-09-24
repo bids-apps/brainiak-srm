@@ -45,7 +45,7 @@ def main():
     subject_dirs = Path(args.bids_dir, "derivatives").glob("sub-*")
     if args.participant_label is not None:
         selected_subject_dirs = [s_dir for s_dir in subject_dirs if
-                                 s_dir.name[-2:] in args.participant_label]
+                                 s_dir.name[4:] in args.participant_label]
     else:
         selected_subject_dirs = subject_dirs
     subjects_files = [get_subject_files(s_dir, args)
