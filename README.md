@@ -1,5 +1,5 @@
 ## BrainIAK-SRM BIDS app
-Shared Response Model (SRM) from the [Brain Imaging Analysis Kit (BrainIAK)](https://github.com/IntelPNI/brainiak).
+Shared Response Model (SRM) from the [Brain Imaging Analysis Kit (BrainIAK)](https://github.com/brainiak/brainiak).
 
 ### Description
 The Shared Response Model (SRM) is a method for aligning fMRI scans from several subjects by assuming
@@ -7,11 +7,11 @@ similar functional behavior in the brain. The voxels of each subject are mapped 
 by projecting the information from each subject into a low-dimensional space.
 
 ### Documentation
-http://pythonhosted.org/brainiak/brainiak.funcalign.html
+http://brainiak.org/docs/brainiak.funcalign.html
 
 ### How to report errors
-Open a GitHub issue in [BrainIAK](https://github.com/IntelPNI/brainiak) (if the issue is about SRM) or here (if the issue is about this wrapper app).
-We also welcome all kinds of [contributions to BrainIAK](https://github.com/IntelPNI/brainiak/blob/master/CONTRIBUTING.rst).
+Open a GitHub issue in [BrainIAK](https://github.com/brainiak/brainiak) (if the issue is about SRM) or here (if the issue is about this wrapper app).
+We also welcome all kinds of [contributions to BrainIAK](http://brainiak.org/docs/contributing.html).
 
 ### Acknowledgements
 Please cite the following papers based on which SRM is implemented.
@@ -19,8 +19,8 @@ Please cite the following papers based on which SRM is implemented.
 "A Reduced-Dimension fMRI Shared Response Model", P.-H. Chen, J. Chen, Y. Yeshurun-Dishon, U. Hasson, J. Haxby, P. Ramadge, Advances in Neural Information Processing Systems (NIPS), 2015.
 http://papers.nips.cc/paper/5855-a-reduced-dimension-fmri-shared-response-model
 
-"Enabling Factor Analysis on Thousand-Subject Neuroimaging Datasets", Michael J. Anderson, Mihai Capotă, Javier S. Turek, Xia Zhu, Theodore L.  Willke, Yida Wang, Po-Hsuan Chen, Jeremy R. Manning, Peter J. Ramadge, Kenneth A. Norman, arXiv preprint, 2016.
-https://arxiv.org/abs/1608.04647
+"Enabling Factor Analysis on Thousand-Subject Neuroimaging Datasets", Michael J. Anderson, Mihai Capotă, Javier S. Turek, Xia Zhu, Theodore L.  Willke, Yida Wang, Po-Hsuan Chen, Jeremy R. Manning, Peter J. Ramadge, Kenneth A. Norman, IEEE Big Data, 2016.
+https://doi.org/10.1109/BigData.2016.7840719
 
 ### Usage
 This App has the following command line arguments:
