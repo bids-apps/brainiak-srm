@@ -30,14 +30,14 @@ This App has the following command line arguments:
                   [--run RUN] [--task TASK] [--preproc PREPROC] [--mask MASK]
                   [--iterations ITERATIONS] [--features FEATURES]
                   bids_dir output_dir {participant,group}
-    
+
     Shared Response Model runner
-    
+
     positional arguments:
       bids_dir              Input directory
       output_dir            Output directory
       {group}   Level of the analysis that will be performed
-    
+
     optional arguments:
       -h, --help            show this help message and exit
       --participant_label PARTICIPANT_LABEL [PARTICIPANT_LABEL ...]
