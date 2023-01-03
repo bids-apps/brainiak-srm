@@ -8,8 +8,11 @@ RUN apt-get update \
                         apt-utils \
                         build-essential \
                         libfreetype6-dev \
+                        libgomp1 \
+                        libmpich-dev \
                         mpich \
                         pkg-config \
+                        python3-dev \
                         python3-pip \
                         python3-tk \
     && pip3 install --no-cache-dir -U \
