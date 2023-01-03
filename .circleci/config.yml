@@ -45,6 +45,7 @@ jobs:
     - persist_to_workspace:
         root: /home/circleci
         paths:
+        - data/ds005-deriv-light
         - docker/image.tar
 
   test:
@@ -54,7 +55,7 @@ jobs:
     steps:
     - attach_workspace:
         at: /tmp/workspace
-    - run: docker load -i /tmp/workspace/image.tar
+    - run: docker load -i /tmp/workspace/docker/image.tar
 
     - run: mkdir -p ${HOME}/outputs
 
@@ -62,14 +63,14 @@ jobs:
         name: print version
         command: |
           docker run -ti --rm \
-            -v ${HOME}/data/ds005-deriv-light:/bids_dataset \
+            -v /tmp/workspace/data/ds005-deriv-light:/bids_dataset \
             -v ${HOME}/outputs:/outputs \
               bids/${CIRCLE_PROJECT_REPONAME,,} --version
     - run:
         name: group level test
         command: |
           docker run -ti --rm \
-            -v ${HOME}/data/ds005-deriv-light:/bids_dataset \
+            -v /tmp/workspace/data/ds005-deriv-light:/bids_dataset \
             -v ${HOME}/outputs:/outputs \
               bids/${CIRCLE_PROJECT_REPONAME,,} /bids_dataset /outputs group
 
@@ -87,8 +88,9 @@ jobs:
         name: push to dockerhub
         command: |
           docker login --username ${DOCKER_USER} --password ${DOCKER_PASS}
-          docker push bids/${CIRCLE_PROJECT_REPONAME,,}:latest
+          docker push bids/${CIRCLE_PROJECT_REPONAME,,}:unstable
           if [[ -n "${CIRCLE_TAG}" ]]; then
+            docker push bids/${CIRCLE_PROJECT_REPONAME,,}:latest
             docker tag bids/${CIRCLE_PROJECT_REPONAME,,} bids/${CIRCLE_PROJECT_REPONAME,,}:${CIRCLE_TAG}
             docker push bids/${CIRCLE_PROJECT_REPONAME,,}:${CIRCLE_TAG}
           fi
