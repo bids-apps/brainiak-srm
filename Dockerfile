@@ -5,6 +5,8 @@ ARG DEBIAN_FRONTEND="noninteractive"
 RUN apt-get update \
     && apt-get install --no-install-recommends -y \
                         git \
+                        apt-utils \
+                        build-essential \
                         libfreetype6-dev \
                         mpich \
                         pkg-config \
