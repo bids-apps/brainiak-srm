@@ -19,6 +19,8 @@ RUN apt-get update \
                     pip \
     && pip3 install --no-cache-dir \
                     git+https://github.com/IntelPNI/brainiak \
+# Workaround for https://github.com/brainiak/brainiak/issues/523
+                    pandas\<1.5 \
                     nibabel \
                     nilearn
 
