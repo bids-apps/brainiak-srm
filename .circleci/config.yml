@@ -12,7 +12,7 @@ jobs:
     - run:
         name: Get test data
         command: |
-          wget https://raw.githubusercontent.com/bids-apps/maintenance-tools/main/utils/get_data_from_osf.sh        
+          wget https://raw.githubusercontent.com/bids-apps/maintenance-tools/main/utils/get_data_from_osf.sh
           bash get_data_from_osf.sh ds005-deriv-light
     - run:
         name: Build Docker image
